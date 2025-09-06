@@ -6,7 +6,7 @@ function App() {
   const [showForm, setShowForm] = useState(false);
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div id="index" style={{ padding: "20px" }}>
       <h1>Gerenciamento de Dragões 🐉</h1>
       <button onClick={() => setShowForm(!showForm)}>
         {showForm ? "Fechar Formulário" : "Novo Dragão"}
