@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import DragonList from "./components/DragonList";
+import DragonForm from "./components/DragonForm";
 
 function App() {
+  const [showForm, setShowForm] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ padding: "20px" }}>
+      <h1>Gerenciamento de Dragões 🐉</h1>
+      <button onClick={() => setShowForm(!showForm)}>
+        {showForm ? "Fechar Formulário" : "Novo Dragão"}
+      </button>
+      {showForm && <DragonForm onSave={() => window.location.reload()} />}
+      <DragonList />
     </div>
   );
 }
