@@ -1,18 +1,25 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import Login from "./components/Login";
 import DragonList from "./components/DragonList";
-import DragonForm from "./components/DragonForm";
 
 function App() {
-  const [showForm, setShowForm] = useState(false);
+  const [isLogged, setIsLogged] = useState(!!localStorage.getItem("token"));
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setIsLogged(false);
+  };
 
   return (
-    <div id="index" style={{ padding: "20px" }}>
-      <h1>Gerenciamento de Dragões 🐉</h1>
-      <button onClick={() => setShowForm(!showForm)}>
-        {showForm ? "Fechar Formulário" : "Novo Dragão"}
-      </button>
-      {showForm && <DragonForm onSave={() => window.location.reload()} />}
-      <DragonList />
+    <div>
+      {isLogged ? (
+        <>
+          <button onClick={handleLogout}>Sair</button>
+          <DragonList />
+        </>
+      ) : (
+        <Login onLogin={() => setIsLogged(true)} />
+      )}
     </div>
   );
 }
