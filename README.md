@@ -3,9 +3,9 @@
 o desenvolvimento está na branch develop
 
 
-## passsos para rodar
+## passos para rodar
 
-acessar o ditório raiz do projeto,e rodar o comando:
+acessar o diretório raiz do projeto,e rodar o comando:
 
 ### `npm start`
 
